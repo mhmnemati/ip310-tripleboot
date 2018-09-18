@@ -225,5 +225,5 @@
 7. Install Clang
 8. Install Mamp Server
 9. Install Docker
-10. Install VSCode + Settings Sync(token + gistid)
+10. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
 11. Map keyboard(`command`->`control`, `control`->`command`)
