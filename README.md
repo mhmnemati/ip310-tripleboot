@@ -47,7 +47,7 @@
 4. Format USB device
 5. Open  Mac `.dmg` file
 6. Copy `Mac Installer` to `Applications` folder
-7. Open `Unibeast` 
+7. Open `Unibeast`
 8. Goto `Destination Select` and select your USB device
 9. Goto `Installation` and click `Install`
 10. After installing completes, open `CloverConfigurer`
@@ -150,7 +150,7 @@
 1. Run `chmod 0777 /opt`
 2. Change Repository to Main Servers
 3. Run `sudo apt install tor polipo`
-4. Edit file `/etc/systemd/system/multi-user.target.wants/tor.service` 
+4. Edit file `/etc/systemd/system/multi-user.target.wants/tor.service`
     ```code
     [Unit]
     Description=Anonymizing overlay network for TCP (multi-instance-master)
