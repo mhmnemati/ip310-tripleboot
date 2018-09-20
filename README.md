@@ -94,8 +94,12 @@
     1. Open `/etc/grub.d/40_custom` with TextEditor (or lovely `VI`) :D
     2. Add these lines at the end of file
         ```code
-        menuentry{
-
+        menuentry 'macOS Sierra' {
+            insmod fat
+            insmod part_gpt
+            insmod search_fs_uuid
+            search --file --no-floppy --set=root /EFI/CLOVER/CLOVERX64.efi
+            chainloader /EFI/CLOVER/CLOVERX64.efi
         }
         ```
 8. Run `sudo update-grub`
