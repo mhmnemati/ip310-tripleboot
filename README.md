@@ -123,12 +123,37 @@
 10. Now Open `Clover Configurer` and do these items
     1. Goto `Mount EFI` section and mount your Hard device EFI partition
     2. Click `Open Partition` and goto `EFI/CLOVER/config.plist`, double click to open file with `CloverConfigurer`
-    3. Goto `Graphics` section and check `Inject Intel`, and set `ig-platform-id` to `0x12345678` (Fake ID)
-    4. Goto `SMBIOS` sectopms and set `Memory Channels` combo box to `Dual Channel`, and set `SlotCount` to `1`
-    5. Click `Save`
-    6. Unmount your USB device EFI partition
+        1. Goto `ACPI` and check `ADDPNLF_*` (brightness fix)
+        2. Goto `Boot` and check `nv_disable=1` (graphics fix)
+        3. Goto `Graphics` and check `Inject Intel` (brightness fix)
+        4. Goto `Graphics` and set `ig-platform-id` to `0x19160000` (Real ID Intel HD 520)
+        5. Goto `Kernel and Kext Patches` and add these to `KextToPatch` as new item (graphics fix)
+            1. Name: `com.apple.driver.AppleIntelSKLGraphicsFramebuffer`
+            2. Find: `8945c839 c67651`
+            3. Replace: `8945c839 c6eb51`
+            4. Comment: `anything`
+            5. MatchOS: `10.12.x`
+        6. Goto `Rt Variables` and set `BooterConfig` to `0x28`
+        7. Goto `Rt Variables` and set `CsrActiveConfig` to `0x3`
+        8. Goto `SMBIOS` and check `Mobile`
+        9. Goto `SMBIOS` and check `Trust`
+        10. Goto `SMBIOS` and add these to `Memory` as new item (8G RAM fix)
+            1. Slot: `0`
+            2. Size: `8192`
+            3. Frequency: `2133`
+            4. Vendor: `HyperX`
+            5. Part: `13A1E908`
+            6. Serial: `RMSA3230KE68H9F213`
+            7. Type: `DDR4`
+        11. Goto `SMBIOS` and set `Channels` to `Dual Channel`
+        12. Goto `SMBIOS` and set `SlotCount` to `1`
+    3. Click `Save`
+    4. Copy all `.kext` files (in `Mac/kexts` folder) to `/EFI/CLOVER/kexts`
+    5. Unmount your USB device EFI partition
 11. Run `sudo kextcache -i /` (remove link file if error 17 shows)
-12. __TODO__: GPU, Audio, PS2, Battery, HDMI, Brightness
+
+
+12. __TODO__: RAM(patch),GPU(patch(patch+Inject Intel,...) + kext), Audio(VoodooHDA kext), PS2(VoodooPS2Controller kext), Battery, HDMI(IntelGraphicsFixup kext), Brightness(IntelBacklight kext + Clover AddPNLF)
 
 ## Customizing
 
