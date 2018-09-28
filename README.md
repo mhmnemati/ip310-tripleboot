@@ -256,3 +256,10 @@
 9. Install Docker
 10. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
 11. Map keyboard(`command`->`control`, `control`->`command`)
+
+### VSCode Installation
+
+1. Install VSCode
+2. Install `clang`, `cpplint`, `texlive-full`, `npm`, `node`
+3. Install `Settings Sync` plugin (gist) and sync settings and plugins
+4. Set keybinding (Integrated Terminal) based on OS type (Ctrl+Shift+T | Ctrl+Alt+T)
