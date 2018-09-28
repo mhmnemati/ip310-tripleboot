@@ -223,7 +223,7 @@
 
     nvm install node
 
-    sudo torsocks apt install code uget mpv audacious redshift apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload fish adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
+    sudo torsocks apt install code uget mpv audacious redshift cppcheck apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload fish adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
 
     torsocks curl -L github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
@@ -247,7 +247,7 @@
 4. Install Homebrew package manager
 5. Run
     ```code
-    brew install cmake nvm fish tor polipo git
+    brew install cmake nvm fish tor polipo git cppcheck
     brew cask install google-chrome mpv
     ```
 6. Install Java-JDK-8
@@ -260,6 +260,6 @@
 ### VSCode Installation (Use with `redshift` at nights :D)
 
 1. Install VSCode
-2. Install `clang`, `cpplint`, `texlive-full`, `npm`, `node`
+2. Install `clang`, `cppcheck`, `texlive-full`, `npm`, `node`
 3. Install `Settings Sync` plugin (gist) and sync settings and plugins
 4. Set keybinding (Integrated Terminal) based on OS type (Ctrl+Shift+T | Ctrl+Alt+T)
