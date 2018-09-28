@@ -223,7 +223,7 @@
 
     nvm install node
 
-    sudo torsocks apt install code uget mpv audacious apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload fish adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
+    sudo torsocks apt install code uget mpv audacious redshift apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload fish adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
 
     torsocks curl -L github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
@@ -257,7 +257,7 @@
 10. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
 11. Map keyboard(`command`->`control`, `control`->`command`)
 
-### VSCode Installation
+### VSCode Installation (Use with `redshift` at nights :D)
 
 1. Install VSCode
 2. Install `clang`, `cpplint`, `texlive-full`, `npm`, `node`
