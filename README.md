@@ -157,7 +157,7 @@
 11. Run `sudo kextcache -i /` (remove link file if error 17 shows)
 
 
-12. __TODO__: RAM(patch),GPU(patch(patch+Inject Intel,...) + kext), Audio(VoodooHDA kext), PS2(VoodooPS2Controller kext), Battery, HDMI(IntelGraphicsFixup kext), Brightness(IntelBacklight kext + Clover AddPNLF)
+12. __TODO__: Battery status, Audio socket, Ethernet socket
 
 ## Customizing
 
@@ -178,7 +178,7 @@
 
 1. Run `chmod 0777 /opt`
 2. Change Repository to Main Servers
-3. Run `sudo apt install tor polipo`
+3. Run `sudo apt install tor privoxy`
 4. Edit file `/etc/systemd/system/multi-user.target.wants/tor.service`
     ```code
     [Unit]
@@ -197,12 +197,9 @@
     [Install]
     WantedBy=multi-user.target
     ```
-5. Edit file `/etc/polipo/config`
+5. Edit file `/etc/privoxy/config`
     ```code
-    gSyslog = true
-    logFile = /var/log/polipo/polipo.log
-    socksParentProxy = "localhost:9050"
-    socksProxyType = socks5
+    forward-socks5t / 127.0.0.1:9050 .
     ```
 6. Run
     ```code
@@ -247,8 +244,8 @@
 4. Install Homebrew package manager
 5. Run
     ```code
-    brew install cmake nvm fish tor polipo git cppcheck
-    brew cask install google-chrome mpv
+    brew install cmake nvm fish tor privoxy git cppcheck
+    brew cask install google-chrome mpv visual-studio-code
     ```
 6. Install Java-JDK-8
 7. Install Clang
