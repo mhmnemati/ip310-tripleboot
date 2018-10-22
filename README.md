@@ -220,21 +220,18 @@
 
     nvm install node
 
-    sudo torsocks apt install code uget mpv audacious redshift cppcheck apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload fish adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
-
-    torsocks curl -L github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
-
-    fish
-
-    omf install budspencer
+    sudo torsocks apt install code uget mpv audacious redshift cppcheck apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
+    
+    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+    ~/.bash_it/install.sh
+    # edit .bashrc => change Theme
 
     sudo ubuntu-drivers autoinstall
     ```
 7. Install VSCode + Settings Sync(token + gistid)
 8. Config desktop theme (`papirus`, `adapta`)
-9. Set default shell to `fish`
-10. Auto start `guake`
-11. Config desktop panel
+9. Auto start `guake`
+10. Config desktop panel
 
 ### macOS Sierra 10.12.6 Customizing
 
@@ -244,8 +241,12 @@
 4. Install Homebrew package manager
 5. Run
     ```code
-    brew install cmake nvm fish tor privoxy git cppcheck
+    brew install cmake nvm tor privoxy git cppcheck
     brew cask install google-chrome mpv visual-studio-code
+    
+    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+    ~/.bash_it/install.sh
+    # edit .bashrc => change Theme
     ```
 6. Install Java-JDK-8
 7. Install Clang
