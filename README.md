@@ -156,8 +156,7 @@
     5. Unmount your USB device EFI partition
 11. Run `sudo kextcache -i /` (remove link file if error 17 shows)
 
-
-12. __TODO__: Battery status, Audio socket, Ethernet socket
+__TODO__: Battery status
 
 ## Customizing
 
@@ -236,10 +235,11 @@
 ### macOS Sierra 10.12.6 Customizing
 
 1. Install `HoRNDIS-9.2.pkg` for USB tethering
-2. Install Adobe XD
-3. Install Telegram
-4. Install Homebrew package manager
-5. Run
+2. Install `CustoMac Essentials.pkg` for Ethernet
+3. Install Adobe XD
+4. Install Telegram
+5. Install Homebrew package manager
+6. Run
     ```code
     brew install cmake nvm tor privoxy git cppcheck
     brew cask install google-chrome mpv visual-studio-code
@@ -248,12 +248,12 @@
     ~/.bash_it/install.sh
     # edit .bashrc => change Theme
     ```
-6. Install Java-JDK-8
-7. Install Clang
-8. Install Mamp Server
-9. Install Docker
-10. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
-11. Map keyboard(`command`->`control`, `control`->`command`)
+7. Install Java-JDK-8
+8. Install Clang
+9. Install Mamp Server
+10. Install Docker
+11. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
+12. Map keyboard(`command`->`control`, `control`->`command`)
 
 ### VSCode Installation (Use with `redshift` at nights :D)
 
