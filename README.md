@@ -220,17 +220,21 @@ __TODO__: Battery status
     nvm install node
 
     sudo torsocks apt install code uget mpv audacious redshift cppcheck apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
-    
+
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     ~/.bash_it/install.sh
     # edit .bashrc => change Theme
 
     sudo ubuntu-drivers autoinstall
     ```
-7. Install VSCode + Settings Sync(token + gistid)
-8. Config desktop theme (`papirus`, `adapta`)
-9. Auto start `guake`
-10. Config desktop panel
+7. Control tor, privoxy services using these commands:
+    ```code
+    sudo services {tor|privoxy} {start|stop|status}
+    ```
+8. Install VSCode + Settings Sync(token + gistid)
+9. Config desktop theme (`papirus`, `adapta`)
+10. Auto start `guake`
+11. Config desktop panel
 
 ### macOS Sierra 10.12.6 Customizing
 
@@ -248,12 +252,21 @@ __TODO__: Battery status
     ~/.bash_it/install.sh
     # edit .bashrc => change Theme
     ```
-7. Install Java-JDK-8
-8. Install Clang
-9. Install Mamp Server
-10. Install Docker
-11. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
-12. Map keyboard(`command`->`control`, `control`->`command`)
+7. Edit file `/usr/local/etc/privoxy/config`
+    ```code
+    forward-socks5t / 127.0.0.1:9050 .
+    ```
+8. Control tor, privoxy services using these commands:
+    ```code
+    brew services list
+    brew services {start|stop} {tor|privoxy}
+    ```
+9. Install Java-JDK-8
+10. Install Clang
+11. Install Mamp Server
+12. Install Docker
+13. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
+14. Map keyboard(`command`->`control`, `control`->`command`)
 
 ### VSCode Installation (Use with `redshift` at nights :D)
 
