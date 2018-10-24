@@ -243,7 +243,7 @@ __TODO__: Battery status
     ```code
     brew install cmake nvm tor privoxy git cppcheck
     brew cask install google-chrome mpv visual-studio-code
-    
+
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     ~/.bash_it/install.sh
     # edit .bashrc => change Theme
