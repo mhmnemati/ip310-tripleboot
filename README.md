@@ -6,12 +6,12 @@
 
 > All needed files for this guide are in folders named `Windows`, `Linux`, `Mac`
 
-* OS `.iso`, `.dmg` file linkes are in `./{OS}/os.link`
-* Back up your important files in a safe place
+-   OS `.iso`, `.dmg` file linkes are in `./{OS}/os.link`
+-   Back up your important files in a safe place
 
 ## Bootable USB's
 
-* First download all OS'es from `./{OS}/os.link`
+-   First download all OS'es from `./{OS}/os.link`
 
 ### Windows Bootable USB
 
@@ -39,13 +39,13 @@
 
 > You need a Mac OS for making bootable flash using `Unibeast` (or Windows `TransMac`, or Linux `dmg2img + dd + mkfs` )
 
-* You can run macOS from `VMWare` and make your bootable flash if you haven't any macOS
+-   You can run macOS from `VMWare` and make your bootable flash if you haven't any macOS
 
 1. Open `Disk Utility` application from `Launchpad/Other/Disk Utility`
 2. Click you USB device and click `Erase`
 3. Set to `GUID` + `JHFS+`
 4. Format USB device
-5. Open  Mac `.dmg` file
+5. Open Mac `.dmg` file
 6. Copy `Mac Installer` to `Applications` folder
 7. Open `Unibeast`
 8. Goto `Destination Select` and select your USB device
@@ -63,7 +63,7 @@
 
 > Now it's time to going to installing OS'es, first Windows and then Linux and then Mac
 
-* Connect you USB device and boot it from `UEFI` mode
+-   Connect you USB device and boot it from `UEFI` mode
 
 ### Windows 10 Installation
 
@@ -156,7 +156,7 @@
     5. Unmount your USB device EFI partition
 11. Run `sudo kextcache -i /` (remove link file if error 17 shows)
 
-__TODO__: Battery status
+**TODO**: Battery status
 
 ## Customizing
 
@@ -172,6 +172,7 @@ __TODO__: Battery status
 8. Install MinGW
 9. Install Java-JDK-8
 10. Install VSCode + Settings Sync(token + gistid)
+11. Install CLion, Rider, DotPeek, VisualStudio
 
 ### GNU/Linux Customizing
 
@@ -179,6 +180,7 @@ __TODO__: Battery status
 2. Change Repository to Main Servers
 3. Run `sudo apt install tor privoxy`
 4. Edit file `/etc/systemd/system/multi-user.target.wants/tor.service`
+
     ```code
     [Unit]
     Description=Anonymizing overlay network for TCP (multi-instance-master)
@@ -196,11 +198,13 @@ __TODO__: Battery status
     [Install]
     WantedBy=multi-user.target
     ```
+
 5. Edit file `/etc/privoxy/config`
     ```code
     forward-socks5t / 127.0.0.1:9050 .
     ```
 6. Run
+
     ```code
     sudo systemctl daemon-reload
     sudo systemctl restart tor.service
@@ -219,7 +223,7 @@ __TODO__: Battery status
 
     nvm install node
 
-    sudo torsocks apt install code uget mpv audacious redshift cppcheck apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
+    sudo torsocks apt install code uget mpv audacious redshift apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
 
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     ~/.bash_it/install.sh
@@ -227,14 +231,16 @@ __TODO__: Battery status
 
     sudo ubuntu-drivers autoinstall
     ```
+
 7. Control tor, privoxy services using these commands:
     ```code
     sudo services {tor|privoxy} {start|stop|status}
     ```
 8. Install VSCode + Settings Sync(token + gistid)
-9. Config desktop theme (`papirus`, `adapta`)
-10. Auto start `guake`
-11. Config desktop panel
+9. Install CLion, AndroidStudio
+10. Config desktop theme (`papirus`, `adapta`)
+11. Auto start `guake`
+12. Config desktop panel
 
 ### macOS Sierra 10.12.6 Customizing
 
@@ -244,14 +250,16 @@ __TODO__: Battery status
 4. Install Telegram
 5. Install Homebrew package manager
 6. Run
+
     ```code
-    brew install cmake nvm tor privoxy git cppcheck
+    brew install cmake nvm tor privoxy git torsocks
     brew cask install google-chrome mpv visual-studio-code
 
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     ~/.bash_it/install.sh
     # edit .bashrc => change Theme
     ```
+
 7. Edit file `/usr/local/etc/privoxy/config`
     ```code
     forward-socks5t / 127.0.0.1:9050 .
@@ -266,11 +274,12 @@ __TODO__: Battery status
 11. Install Mamp Server
 12. Install Docker
 13. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
-14. Map keyboard(`command`->`control`, `control`->`command`)
+14. Install CLion, XCode
+15. Map keyboard(`command`->`control`, `control`->`command`)
 
 ### VSCode Installation (Use with `redshift` at nights :D)
 
 1. Install VSCode
-2. Install `clang`, `cppcheck`, `texlive-full`, `npm`, `node`
+2. Install `texlive-full`, `npm`, `node`
 3. Install `Settings Sync` plugin (gist) and sync settings and plugins
 4. Set keybinding (Integrated Terminal) based on OS type (Ctrl+Shift+T | Ctrl+Alt+T)
