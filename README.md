@@ -67,7 +67,9 @@
 
 ### Windows 10 Installation
 
-1. Open `CMD` and run `diskpart` and do these things
+#### Before Install
+
+1. Open `CMD` and run `diskpart` and run these commands
     ```code
     list disk
     select disk <hard disk number>
@@ -84,13 +86,18 @@
 
 ### GNU/Linux Installation
 
+#### Before Install
+
 1. Goto paritioner
 2. Create 4GB swap
 3. Create 396GB root
 4. Set grub installation to `/dev/sda` (Hard drive)
 5. Install Linux
-6. Boot installed linux (For adding `macOS Clover Bootloader` chainloader item to `GRUB2`)
-7. Open terminal and do these things
+
+#### After Install
+
+1. Boot installed linux (For adding `macOS Clover Bootloader` chainloader item to `GRUB2`)
+2. Open terminal and do these things
     1. Open `/etc/grub.d/40_custom` with TextEditor (or lovely `VI`) :D
     2. Add these lines at the end of file
         ```code
@@ -102,18 +109,21 @@
             chainloader /EFI/CLOVER/CLOVERX64.efi
         }
         ```
-8. Run `sudo update-grub`
+3. Run `sudo update-grub`
 
 ### macOS Sierra 10.12.6 Installation
+
+#### Before Install
 
 1. Open `Disk Utility`
 2. Format 300GB partition as `JHFS+` format
 3. Install macOS on new partition
-4. Don't eject USB device
-5. Reboot after installation
-6. Boot flash `Clover Bootloader` and then boot `macOS` installed from that
-7. Complete installation
-8. Open `Multibeast` and check these items
+
+#### After Install (Don't eject USB device)
+
+1. Boot flash `Clover Bootloader` and then boot `macOS` installed from that
+2. Complete installation
+3. Open `Multibeast` and check these items
     1. `Drivers/Audio/Universal/VoodooHDA v2.8.9`
     2. `Drivers/Disk/Intel Generaic AHCI SATA`
     3. `Drivers/Misc/*`
@@ -123,8 +133,8 @@
     7. `Bootloader/Clover v2.4 * UEFI + Emulated NVRAM`
     8. `Customize/Graphics Configuration/Intel HD 5xx`
     9. `Customize/Graphics Configuration/Nvidia Web Drivers Boot Flag`
-9. From Build menu click Install
-10. Now Open `Clover Configurer` and do these items
+4. From Build menu click Install
+5. Now Open `Clover Configurer` and do these items
     1. Goto `Mount EFI` section and mount your Hard device EFI partition
     2. Click `Open Partition` and goto `EFI/CLOVER/config.plist`, double click to open file with `CloverConfigurer`
         1. Goto `ACPI` and check `ADDPNLF_*` (brightness fix)
@@ -154,7 +164,7 @@
     3. Click `Save`
     4. Copy all `.kext` files (in `Mac/kexts` folder) to `/EFI/CLOVER/kexts`
     5. Unmount your USB device EFI partition
-11. Run `sudo kextcache -i /` (remove link file if error 17 shows)
+6. Run `sudo kextcache -i /` (remove link file if error 17 shows)
 
 **TODO**: Battery status
 
