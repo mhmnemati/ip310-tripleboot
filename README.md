@@ -162,26 +162,50 @@
 
 ### Windows 10 Customizing
 
-1. Install Lenovo Drivers (download from lenovo official site)
-2. Install Microsoft Office
-3. Install Adobe XD
-4. Install Telegram
-5. Install UltraSurf, Privoxy - config 9050 socks5, 8118 http
-6. Install Chocolaty package manager
-7. Run `choco install googlechrome winrar mpv cmake git nvm Bitnami-XAMPP --installargs '"ADD_CMAKE_TO_PATH=System"'`
-8. Install UGet
-9. Install MinGW
-10. Install Java-JDK-8
-11. Install VSCode + Settings Sync(token + gistid)
-12. Install CLion, Rider, DotPeek, VisualStudio
+#### Drivers
+
+1. Install Lenovo Drivers
+
+#### PackageManager & Proxy
+    
+1. Install Chocolaty package manager
+2. Install Ultrasurf(9050)
+3. Run `choco install privoxy` => config 9050 socks5t
+4. Edit file `privoxy/config.txt`
+    ```code
+    forward-socks5t / 127.0.0.1:9050 .
+    ```
+
+#### Install
+
+1. Run 
+    ```code
+    choco install ^
+    steam winrar vscode uget mpv firefox googlechrome git conemu cmake nvm Bitnami-XAMPP ^
+    --installargs '"ADD_CMAKE_TO_PATH=System"' ^
+    --proxy=127.0.0.1:9050
+    ```
+2. Install MinGW, Java-JDK-8
+3. Install Microsoft Office, Adobe XD, Telegram
+4. Install VisualStudio, CLion, Rider, DotPeek, Qt
+
+#### Config
+
+1. Config autostart, quake `conemu`
+2. Config VSCode settings sync(token + gistid)
 
 ### GNU/Linux Customizing
+
+#### Drivers
+
+1. Run `sudo ubuntu-drivers autoinstall`
+
+#### PackageManager & Proxy
 
 1. Run `chmod 0777 /opt`
 2. Change Repository to Main Servers
 3. Run `sudo apt install tor privoxy`
 4. Edit file `/etc/systemd/system/multi-user.target.wants/tor.service`
-
     ```code
     [Unit]
     Description=Anonymizing overlay network for TCP (multi-instance-master)
@@ -199,22 +223,31 @@
     [Install]
     WantedBy=multi-user.target
     ```
-
 5. Edit file `/etc/privoxy/config`
     ```code
     forward-socks5t / 127.0.0.1:9050 .
     ```
 6. Run
-
     ```code
     sudo systemctl daemon-reload
     sudo systemctl restart tor.service
     sudo systemctl restart polipo.service
+    ```
+7. Control tor, privoxy services using these commands:
+    ```code
+    sudo service {tor|privoxy} {start|stop}
+    ```
 
+#### Install
+
+1. Run
+    ```code
     sudo torsocks apt-add-repository ppa:fixnix/netspeed
     sudo torsocks apt-add-repository ppa:tista/adapta
     sudo torsocks apt-add-repository ppa:papirus/papirus
+
     sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
     sudo curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -224,59 +257,70 @@
 
     nvm install node
 
-    sudo torsocks apt install code uget mpv audacious redshift apt-transport-https ca-certificates curl software-properties-common guake chromium-browser indicator-multiload adapta-gtk-theme papirus-icon-theme docker.io gcc clang cmake erlang openjdk-8-jdk git lamp-server^
+    sudo torsocks apt install \
+    steam unrar code uget mpv firefox chromium-browser git guake docker.io gcc clang cmake erlang openjdk-8-jdk lamp-server^ \
+    audacious redshift \
+    apt-transport-https ca-certificates curl software-properties-common \
+    indicator-multiload adapta-gtk-theme papirus-icon-theme
 
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     ~/.bash_it/install.sh
     # edit .bashrc => change Theme
-
-    sudo ubuntu-drivers autoinstall
     ```
+2. Install Libre Office, Telegram
+3. Install CLion, AndroidStudio, Qt
 
-7. Control tor, privoxy services using these commands:
-    ```code
-    sudo services {tor|privoxy} {start|stop|status}
-    ```
-8. Install VSCode + Settings Sync(token + gistid)
-9. Install CLion, AndroidStudio
-10. Config desktop theme (`papirus`, `adapta`)
-11. Auto start `guake`
-12. Config desktop panel
+#### Config
+
+1. Config desktop theme (`papirus`, `adapta`)
+2. Config autostart `guake`
+3. Config desktop panel
+4. Config VSCode settings sync(token + gistid)
 
 ### macOS Sierra 10.12.6 Customizing
 
+#### Drivers
+    
 1. Install `HoRNDIS-9.2.pkg` for USB tethering
 2. Install `CustoMac Essentials.pkg` for Ethernet
-3. Install Adobe XD
-4. Install Telegram
-5. Install Homebrew package manager
-6. Run
 
-    ```code
-    brew install cmake nvm tor privoxy git torsocks
-    brew cask install google-chrome mpv visual-studio-code
+#### PackageManager & Proxy
 
-    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-    ~/.bash_it/install.sh
-    # edit .bashrc => change Theme
-    ```
-
-7. Edit file `/usr/local/etc/privoxy/config`
+1. Install Homebrew package manager
+2. Run `brew install tor privoxy`
+3. Edit file `/usr/local/etc/privoxy/config`
     ```code
     forward-socks5t / 127.0.0.1:9050 .
     ```
-8. Control tor, privoxy services using these commands:
+4. Control tor, privoxy services using these commands:
     ```code
     brew services list
     brew services {start|stop} {tor|privoxy}
     ```
-9. Install Java-JDK-8
-10. Install Clang
-11. Install Mamp Server
-12. Install Docker
-13. Install VSCode + Settings Sync(token + gistid) + Remap keybindings
-14. Install CLion, XCode
-15. Map keyboard(`command`->`control`, `control`->`command`)
+
+#### Install
+
+1. Run
+    ```code
+    brew install \
+    unrar git clang cmake erlang \
+    
+    brew cask install \
+    steam visual-studio-code mpv firefox google-chrome iterm2 \
+
+    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+    ~/.bash_it/install.sh
+    # edit .bashrc => change Theme
+    ```
+2. Install Clang, Java-JDK-8, Mamp Server
+3. Install Telegram Adobe XD
+4. Install CLion, XCode
+
+#### Config
+
+1. Config autostart, quake `iterm2`
+2. Config VSCode settings sync(token + gistid)
+3. Config map keyboard(`command`->`control`, `control`->`command`)
 
 ### VSCode Installation (Use with `redshift` at nights :D)
 
