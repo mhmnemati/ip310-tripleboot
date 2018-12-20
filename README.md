@@ -194,6 +194,11 @@
 1. Config autostart, quake `conemu`
 2. Config VSCode settings sync(token + gistid)
 
+#### Screenshots
+
+![Shot 1](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/Screenshot%20(3).png)
+![Shot 2](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/Screenshot%20(4).png)
+
 ### GNU/Linux Customizing
 
 #### Drivers
