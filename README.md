@@ -167,7 +167,7 @@
 1. Install Lenovo Drivers
 
 #### PackageManager & Proxy
-    
+
 1. Install Chocolaty package manager
 2. Install Ultrasurf(9050)
 3. Run `choco install privoxy` => config 9050 socks5t
@@ -178,7 +178,7 @@
 
 #### Install
 
-1. Run 
+1. Run
     ```code
     choco install ^
     steam winrar vscode uget mpv firefox googlechrome git conemu cmake nvm Bitnami-XAMPP ^
@@ -196,8 +196,8 @@
 
 #### Screenshots
 
-![Shot 1](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/Screenshot%20(3).png)
-![Shot 2](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/Screenshot%20(4).png)
+![Shot 1](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/Screenshot1.png)
+![Shot 2](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/Screenshot2.png)
 
 ### GNU/Linux Customizing
 
@@ -211,6 +211,7 @@
 2. Change Repository to Main Servers
 3. Run `sudo apt install tor privoxy`
 4. Edit file `/etc/systemd/system/multi-user.target.wants/tor.service`
+
     ```code
     [Unit]
     Description=Anonymizing overlay network for TCP (multi-instance-master)
@@ -228,6 +229,7 @@
     [Install]
     WantedBy=multi-user.target
     ```
+
 5. Edit file `/etc/privoxy/config`
     ```code
     forward-socks5t / 127.0.0.1:9050 .
@@ -246,6 +248,7 @@
 #### Install
 
 1. Run
+
     ```code
     sudo torsocks apt-add-repository ppa:fixnix/netspeed
     sudo torsocks apt-add-repository ppa:tista/adapta
@@ -272,6 +275,7 @@
     ~/.bash_it/install.sh
     # edit .bashrc => change Theme
     ```
+
 2. Install Libre Office, Telegram
 3. Install CLion, AndroidStudio, Qt
 
@@ -282,10 +286,15 @@
 3. Config desktop panel
 4. Config VSCode settings sync(token + gistid)
 
+#### Screenshots
+
+![Shot 1](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Linux/Screenshot1.png)
+![Shot 2](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Linux/Screenshot2.png)
+
 ### macOS Sierra 10.12.6 Customizing
 
 #### Drivers
-    
+
 1. Install `HoRNDIS-9.2.pkg` for USB tethering
 2. Install `CustoMac Essentials.pkg` for Ethernet
 
@@ -306,10 +315,11 @@
 #### Install
 
 1. Run
+
     ```code
     brew install \
     unrar git clang cmake erlang \
-    
+
     brew cask install \
     steam visual-studio-code mpv firefox google-chrome iterm2 \
 
@@ -317,6 +327,7 @@
     ~/.bash_it/install.sh
     # edit .bashrc => change Theme
     ```
+
 2. Install Clang, Java-JDK-8, Mamp Server
 3. Install Telegram Adobe XD
 4. Install CLion, XCode
@@ -326,6 +337,11 @@
 1. Config autostart, quake `iterm2`
 2. Config VSCode settings sync(token + gistid)
 3. Config map keyboard(`command`->`control`, `control`->`command`)
+
+#### Screenshots
+
+![Shot 1](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Mac/Screenshot1.png)
+![Shot 2](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Mac/Screenshot2.png)
 
 ### VSCode Installation (Use with `redshift` at nights :D)
 
