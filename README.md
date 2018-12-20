@@ -166,13 +166,14 @@
 2. Install Microsoft Office
 3. Install Adobe XD
 4. Install Telegram
-5. Install Chocolaty package manager
-6. Run `choco install googlechrome winrar mpv cmake git nvm Bitnami-XAMPP --installargs '"ADD_CMAKE_TO_PATH=System"'`
-7. Install UGet
-8. Install MinGW
-9. Install Java-JDK-8
-10. Install VSCode + Settings Sync(token + gistid)
-11. Install CLion, Rider, DotPeek, VisualStudio
+5. Install UltraSurf, Privoxy - config 9050 socks5, 8118 http
+6. Install Chocolaty package manager
+7. Run `choco install googlechrome winrar mpv cmake git nvm Bitnami-XAMPP --installargs '"ADD_CMAKE_TO_PATH=System"'`
+8. Install UGet
+9. Install MinGW
+10. Install Java-JDK-8
+11. Install VSCode + Settings Sync(token + gistid)
+12. Install CLion, Rider, DotPeek, VisualStudio
 
 ### GNU/Linux Customizing
 
