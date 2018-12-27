@@ -191,7 +191,7 @@
 1. Run
     ```code
     choco install ^
-    steam winrar vscode uget mpv firefox googlechrome git conemu cmake nvm Bitnami-XAMPP ^
+    steam winrar vscode uget mpv firefox googlechrome git conemu cmake nvm anydesk Bitnami-XAMPP ^
     --installargs '"ADD_CMAKE_TO_PATH=System"' ^
     --proxy=127.0.0.1:9050
     ```
@@ -276,7 +276,7 @@
     nvm install node
 
     sudo torsocks apt install \
-    steam unrar code uget mpv firefox chromium-browser git guake docker.io gcc clang cmake erlang openjdk-8-jdk lamp-server^ \
+    steam unrar code uget mpv firefox chromium-browser git guake docker.io gcc clang cmake anydesk erlang openjdk-8-jdk lamp-server^ \
     audacious redshift \
     apt-transport-https ca-certificates curl software-properties-common \
     indicator-multiload adapta-gtk-theme papirus-icon-theme
@@ -331,7 +331,7 @@
     unrar git clang cmake erlang \
 
     brew cask install \
-    steam visual-studio-code mpv firefox google-chrome iterm2 \
+    steam visual-studio-code mpv firefox google-chrome iterm2 anydesk \
 
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
     ~/.bash_it/install.sh
