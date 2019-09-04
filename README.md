@@ -185,6 +185,13 @@ Follow these steps:
         ```code
         sudo service {tor|privoxy} {start|stop}
         ```
+    6. Add iptable rules for routing all traffics from `Tor`
+        
+        ```code
+        iptables -t nat -A OUTPUT -m owner --uid-owner $(id -u debian-tor) -j RETURN
+        iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports 9053
+        iptables -t nat -A OUTPUT -p tcp --syn -j REDIRECT --to-ports 9050
+        ```
 
 4. Install my favorite apps by following these steps:
 
