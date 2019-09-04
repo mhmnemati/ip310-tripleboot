@@ -190,7 +190,7 @@ Follow these steps:
         ```code
         iptables -t nat -A OUTPUT -m owner --uid-owner $(id -u debian-tor) -j RETURN
         iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports 9053
-        iptables -t nat -A OUTPUT -p tcp --syn -j REDIRECT --to-ports 9050
+        iptables -t nat -A OUTPUT -p tcp --syn -j REDIRECT --to-ports 9052
         ```
         
     7. Add torrc configs
