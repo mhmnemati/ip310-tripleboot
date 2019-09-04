@@ -192,6 +192,15 @@ Follow these steps:
         iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports 9053
         iptables -t nat -A OUTPUT -p tcp --syn -j REDIRECT --to-ports 9050
         ```
+        
+    7. Add torrc configs
+    
+        ```code
+        TrackHostExits gitlab.com
+        AutomapHostsOnResolve 1
+        DNSPort 9053
+        TransPort 9052
+        ```
 
 4. Install my favorite apps by following these steps:
 
