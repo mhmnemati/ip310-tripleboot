@@ -70,12 +70,37 @@ Follow these steps:
 
 ---
 
+### Proxy
+
+1. Install [**Chisel**](https://github.com/jpillora/chisel)
+    1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `C:/ProgramFiles`
+    2. Add folder to `PATH` environment: **Control Panel**
+2. Install [**Privoxy**](https://www.privoxy.org/)
+    1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
+    2. Edit `C:/ProgramFiles/Privoxy/config.txt`
+        1. Comment `logFile` line
+        2. UnComment `forward-socks5t 127.0.0.1:9050` line
+3. Config **`Proxy`**
+    1. Add `Proxy` to `Control Panel`
+        1. URL: `http://127.0.0.1:8118`
+        2. Type: `HTTP`, `HTTPS`
+    2. Add `Proxy` to `Git SSH`
+        1. Path: `.ssh/config`
+        2. Add these lines:
+            ```code
+            Host gitlab.com github.com
+                  ProxyCommand nc -x 127.0.0.1:9050 %h %p
+            ```
+
+Now run `sockit` command
+
+---
+
 ### Customization
 
 1. Install drivers using [DriverPack Solution](https://drp.su/en)
 2. Install [Chocolatey](https://chocolatey.org/) package manager
-3. Install [ProtonVPN](https://protonvpn.com/) or [Tor](https://www.torproject.org/download/) proxy (Hey dude, proxy is one of the most important tools to live in `Islamic Republic Of Iran` :D)
-4. Install your favorite apps or just follow these steps to install my favorite apps as your favorites :D
+3. Install your favorite apps or just follow these steps to install my favorite apps as your favorites :D
 
     1. Run commands bellow:
 
@@ -139,77 +164,55 @@ Follow these steps:
 
 ---
 
+### Proxy
+
+1. Install [**Chisel**](https://github.com/jpillora/chisel)
+    1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `/opt`
+    2. Add folder to `PATH` environment: **`/etc/environment`**
+2. Install [**Privoxy**](https://www.privoxy.org/)
+    1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
+    2. Edit `/etc/privoxy/config`
+        1. Comment `logFile` line
+        2. UnComment `forward-socks5t 127.0.0.1:9050` line
+3. Config **`Proxy`**
+    1. Add `Proxy` to `PATH`
+        1. Path: `/etc/environment`
+        2. Add these lines:
+            ```code
+            HTTP_PROXY="http://127.0.0.1:8118"
+            HTTPS_PROXY="http://127.0.0.1:8118"
+            ```
+    2. Add `Proxy` to `Git SSH`
+        1. Path: `.ssh/config`
+        2. Add these lines:
+            ```code
+            Host gitlab.com github.com
+                  ProxyCommand nc -x 127.0.0.1:9050 %h %p
+            ```
+    3. Add `Proxy` to `APT`
+        1. Path: `/etc/apt/apt.conf.d/apt.conf`
+        2. Add these lines:
+            ```code
+            Acquire::http::proxy "http://127.0.0.1:8118";
+            Acquire::https::proxy "http://127.0.0.1:8118";
+            ```
+
+Now run `sockit` command
+
+---
+
 ### Customization
 
 1. Install drivers by command `sudo ubuntu-drivers autoinstall`
 2. Run `chmod 0777 /opt` to change permissions of `opt` folder (It will use as a path for installing some applications)
-3. Install `Tor` and `Privoxy`:
-
-    1. Run `sudo apt install tor privoxy`
-    2. Edit file `/etc/systemd/system/multi-user.target.wants/tor.service`
-
-        ```code
-        [Unit]
-        Description=Anonymizing overlay network for TCP (multi-instance-master)
-
-        [Service]
-        User=debian-tor
-        Type=simple
-        RemainAfterExit=yes
-        ExecStart=/usr/bin/tor -f /etc/tor/torrc
-        ExecReload=/usr/bin/kill -HUP $MAINPID
-        KillSignal=SIGINT
-        LimitNOFILE=8192
-        PrivateDevices=yes
-
-        [Install]
-        WantedBy=multi-user.target
-        ```
-
-    3. Edit file `/etc/privoxy/config`
-
-        ```code
-        forward-socks5t / 127.0.0.1:9050 .
-        ```
-
-    4. Run
-
-        ```code
-        sudo systemctl daemon-reload
-        sudo systemctl restart tor.service
-        sudo systemctl restart polipo.service
-        ```
-
-    5. Control tor, privoxy services using these commands:
-
-        ```code
-        sudo service {tor|privoxy} {start|stop}
-        ```
-    6. Add iptable rules for routing all traffics from `Tor`
-        
-        ```code
-        iptables -t nat -A OUTPUT -m owner --uid-owner $(id -u debian-tor) -j RETURN
-        iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports 9053
-        iptables -t nat -A OUTPUT -p tcp --syn -j REDIRECT --to-ports 9052
-        ```
-        
-    7. Add torrc configs
-    
-        ```code
-        TrackHostExits gitlab.com
-        AutomapHostsOnResolve 1
-        DNSPort 9053
-        TransPort 9052
-        ```
-
-4. Install my favorite apps by following these steps:
+3. Install my favorite apps by following these steps:
 
     1. Run commands bellow:
 
         ```code
-        sudo torsocks apt-add-repository ppa:fixnix/netspeed
-        sudo torsocks apt-add-repository ppa:tista/adapta
-        sudo torsocks apt-add-repository ppa:papirus/papirus
+        sudo apt-add-repository ppa:fixnix/netspeed
+        sudo apt-add-repository ppa:tista/adapta
+        sudo apt-add-repository ppa:papirus/papirus
 
         sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
@@ -217,12 +220,12 @@ Follow these steps:
         sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
         sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
-        sudo torsocks apt update
-        sudo torsocks apt upgrade
+        sudo apt update
+        sudo apt upgrade
 
         nvm install node
 
-        sudo torsocks apt install \
+        sudo apt install \
         steam unrar code uget mpv firefox chromium-browser git guake docker.io gcc clang cmake anydesk erlang openjdk-8-jdk lamp-server^ \
         audacious redshift \
         apt-transport-https ca-certificates curl software-properties-common \
@@ -309,27 +312,41 @@ Customized `clover.zip` patches:
 
 ---
 
+### Proxy
+
+1. Install [**Chisel**](https://github.com/jpillora/chisel)
+    1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `Home`
+    2. Add folder to `PATH` environment: **`/usr/local/etc/environment`**
+2. Install [**Privoxy**](https://www.privoxy.org/)
+    1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
+    2. Edit `/usr/local/etc/privoxy/config`
+        1. Comment `logFile` line
+        2. UnComment `forward-socks5t 127.0.0.1:9050` line
+3. Config **`Proxy`**
+    1. Add `Proxy` to `PATH`
+        1. Path: `/usr/local/etc/environment`
+        2. Add these lines:
+            ```code
+            HTTP_PROXY="http://127.0.0.1:8118"
+            HTTPS_PROXY="http://127.0.0.1:8118"
+            ```
+    2. Add `Proxy` to `Git SSH`
+        1. Path: `.ssh/config`
+        2. Add these lines:
+            ```code
+            Host gitlab.com github.com
+                  ProxyCommand nc -x 127.0.0.1:9050 %h %p
+            ```
+
+Now run `sockit` command
+
+---
+
 ### Customization
 
 1. Install [HoRNDIS](https://joshuawise.com/horndis) driver for USB tethering
 2. Install [Homebrew](https://brew.sh/) package manager
-3. Install `Tor` and `Privoxy`:
-
-    1. Run `brew install tor privoxy`
-    2. Edit file `/usr/local/etc/privoxy/config`
-
-        ```code
-        forward-socks5t / 127.0.0.1:9050 .
-        ```
-
-    3. Control tor, privoxy services using these commands:
-
-        ```code
-        brew services list
-        brew services {start|stop} {tor|privoxy}
-        ```
-
-4. Install my favorite apps by following these steps:
+3. Install my favorite apps by following these steps:
 
     1. Run commands bellow:
 
