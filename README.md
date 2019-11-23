@@ -74,7 +74,8 @@ Follow these steps:
 
 1. Install [**Chisel**](https://github.com/jpillora/chisel)
     1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `C:/ProgramFiles`
-    2. Add folder to `PATH` environment: **Control Panel**
+    2. Change `{CHISEL_SERVER_HOST}` with your chisel server url
+    3. Add folder to `PATH` environment: **Control Panel**
 2. Install [**Privoxy**](https://www.privoxy.org/)
     1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
     2. Edit `C:/ProgramFiles/Privoxy/config.txt`
@@ -168,7 +169,8 @@ Follow these steps:
 
 1. Install [**Chisel**](https://github.com/jpillora/chisel)
     1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `/opt`
-    2. Add folder to `PATH` environment: **`/etc/environment`**
+    2. Change `{CHISEL_SERVER_HOST}` with your chisel server url
+    3. Add folder to `PATH` environment: **`/etc/environment`**
 2. Install [**Privoxy**](https://www.privoxy.org/)
     1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
     2. Edit `/etc/privoxy/config`
@@ -316,7 +318,8 @@ Customized `clover.zip` patches:
 
 1. Install [**Chisel**](https://github.com/jpillora/chisel)
     1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `Home`
-    2. Add folder to `PATH` environment: **`/usr/local/etc/environment`**
+    2. Change `{CHISEL_SERVER_HOST}` with your chisel server url
+    3. Add folder to `PATH` environment: **`/usr/local/etc/environment`**
 2. Install [**Privoxy**](https://www.privoxy.org/)
     1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
     2. Edit `/usr/local/etc/privoxy/config`
