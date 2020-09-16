@@ -11,7 +11,7 @@
 
 ### Download
 
-Download the windows 10 `.iso` image from [this link](https://soft98.ir/os/windows-10/16142-win-business-1903-a7.html)
+Download the windows 10 `.iso` image from [this link](https://soft98.ir/os/windows/17807-%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF-%D9%88%DB%8C%D9%86%D9%80%D8%AF%D9%88%D8%B2-10-%D8%A2%DB%8C%D9%80%D9%88.html)
 
 ---
 
@@ -107,6 +107,8 @@ Now run `sockit` command
 
         ```cmd
         choco install winrar vscode uget mpv firefox googlechrome git conemu nvm
+
+        nvm install node
         ```
 
     2. Config **autostart**, **quake style** for `conemu`
@@ -212,25 +214,22 @@ Now run `sockit` command
     1. Run commands bellow:
 
         ```code
-        sudo apt-add-repository ppa:fixnix/netspeed
-        sudo apt-add-repository ppa:tista/adapta
-        sudo apt-add-repository ppa:papirus/papirus
+        sudo apt-add-repository ppa:fixnix/netspeed -y
+        sudo apt-add-repository ppa:tista/adapta -y
+        sudo apt-add-repository ppa:papirus/papirus -y
+
+        sudo apt install curl
 
         sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-
-        sudo curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-        sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-        sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
         sudo apt update
         sudo apt upgrade
 
         nvm install node
 
-        sudo apt install \
-        steam unrar code uget mpv firefox chromium-browser git guake docker.io gcc clang cmake anydesk erlang openjdk-8-jdk lamp-server^ \
-        audacious redshift \
-        apt-transport-https ca-certificates curl software-properties-common \
+        sudo apt install unrar code uget mpv firefox \
+        chromium-browser git guake docker.io audacious redshift \
+        apt-transport-https ca-certificates software-properties-common \
         indicator-multiload adapta-gtk-theme papirus-icon-theme
 
         git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
