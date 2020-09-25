@@ -72,28 +72,11 @@ Follow these steps:
 
 ### Proxy
 
-1. Install [**Chisel**](https://github.com/jpillora/chisel)
-    1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `C:/ProgramFiles`
-    2. Change `{CHISEL_SERVER_HOST}` with your chisel server url
-    3. Add folder to `PATH` environment: **Control Panel**
-2. Install [**Privoxy**](https://www.privoxy.org/)
-    1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
-    2. Edit `C:/ProgramFiles/Privoxy/config.txt`
-        1. Comment `logFile` line
-        2. UnComment `forward-socks5t 127.0.0.1:9050` line
-3. Config **`Proxy`**
-    1. Add `Proxy` to `Control Panel`
-        1. URL: `http://127.0.0.1:8118`
-        2. Type: `HTTP`, `HTTPS`
-    2. Add `Proxy` to `Git SSH`
-        1. Path: `.ssh/config`
-        2. Add these lines:
-            ```code
-            Host gitlab.com github.com
-                  ProxyCommand nc -x 127.0.0.1:9050 %h %p
-            ```
+Use [**Chisel**](https://github.com/jpillora/chisel) as a proxy for tunneling your traffic through a server:
 
-Now run `sockit` command
+```sh
+docker run -d --restart always --name chisel -p 9050:1080 jpillora/chisel client https://{CHISEL_SERVER_HOST}/ 0.0.0.0:socks
+```
 
 ---
 
@@ -169,39 +152,11 @@ Follow these steps:
 
 ### Proxy
 
-1. Install [**Chisel**](https://github.com/jpillora/chisel)
-    1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `/opt`
-    2. Change `{CHISEL_SERVER_HOST}` with your chisel server url
-    3. Add folder to `PATH` environment: **`/etc/environment`**
-2. Install [**Privoxy**](https://www.privoxy.org/)
-    1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
-    2. Edit `/etc/privoxy/config`
-        1. Comment `logFile` line
-        2. UnComment `forward-socks5t 127.0.0.1:9050` line
-3. Config **`Proxy`**
-    1. Add `Proxy` to `PATH`
-        1. Path: `/etc/environment`
-        2. Add these lines:
-            ```code
-            HTTP_PROXY="http://127.0.0.1:8118"
-            HTTPS_PROXY="http://127.0.0.1:8118"
-            ```
-    2. Add `Proxy` to `Git SSH`
-        1. Path: `.ssh/config`
-        2. Add these lines:
-            ```code
-            Host gitlab.com github.com
-                  ProxyCommand nc -x 127.0.0.1:9050 %h %p
-            ```
-    3. Add `Proxy` to `APT`
-        1. Path: `/etc/apt/apt.conf.d/apt.conf`
-        2. Add these lines:
-            ```code
-            Acquire::http::proxy "http://127.0.0.1:8118";
-            Acquire::https::proxy "http://127.0.0.1:8118";
-            ```
+Use [**Chisel**](https://github.com/jpillora/chisel) as a proxy for tunneling your traffic through a server:
 
-Now run `sockit` command
+```sh
+docker run -d --restart always --name chisel -p 9050:1080 jpillora/chisel client https://{CHISEL_SERVER_HOST}/ 0.0.0.0:socks
+```
 
 ---
 
@@ -315,32 +270,11 @@ Customized `clover.zip` patches:
 
 ### Proxy
 
-1. Install [**Chisel**](https://github.com/jpillora/chisel)
-    1. Copy folder [sockit](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/sockit) to `Home`
-    2. Change `{CHISEL_SERVER_HOST}` with your chisel server url
-    3. Add folder to `PATH` environment: **`/usr/local/etc/environment`**
-2. Install [**Privoxy**](https://www.privoxy.org/)
-    1. Install from [this file](https://github.com/koliberr136a1/ip310-tripleboot/blob/master/Windows/privoxy_setup_3.0.28.exe)
-    2. Edit `/usr/local/etc/privoxy/config`
-        1. Comment `logFile` line
-        2. UnComment `forward-socks5t 127.0.0.1:9050` line
-3. Config **`Proxy`**
-    1. Add `Proxy` to `PATH`
-        1. Path: `/usr/local/etc/environment`
-        2. Add these lines:
-            ```code
-            HTTP_PROXY="http://127.0.0.1:8118"
-            HTTPS_PROXY="http://127.0.0.1:8118"
-            ```
-    2. Add `Proxy` to `Git SSH`
-        1. Path: `.ssh/config`
-        2. Add these lines:
-            ```code
-            Host gitlab.com github.com
-                  ProxyCommand nc -x 127.0.0.1:9050 %h %p
-            ```
+Use [**Chisel**](https://github.com/jpillora/chisel) as a proxy for tunneling your traffic through a server:
 
-Now run `sockit` command
+```sh
+docker run -d --restart always --name chisel -p 9050:1080 jpillora/chisel client https://{CHISEL_SERVER_HOST}/ 0.0.0.0:socks
+```
 
 ---
 
@@ -355,7 +289,7 @@ Now run `sockit` command
         ```code
         brew install unrar git
 
-        brew cask install visual-studio-code mpv firefox google-chrome iterm2 anydesk
+        brew cask install visual-studio-code mpv firefox google-chrome iterm2
 
         git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
         ~/.bash_it/install.sh
