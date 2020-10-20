@@ -89,7 +89,9 @@ docker run -d --restart always --name chisel -p 9050:1080 jpillora/chisel client
     1. Run commands bellow:
 
         ```cmd
-        choco install winrar vscode uget mpv firefox googlechrome git conemu nvm
+        choco install docker-desktop vscode drawio firefox googlechrome
+
+        choco install winrar uget mpv git conemu nvm
 
         nvm install node
         ```
@@ -182,10 +184,12 @@ docker run -d --restart always --name chisel -p 9050:1080 jpillora/chisel client
 
         nvm install node
 
-        sudo apt install unrar code uget mpv firefox \
-        chromium-browser git guake docker.io audacious redshift \
-        apt-transport-https ca-certificates software-properties-common \
-        indicator-multiload adapta-gtk-theme papirus-icon-theme
+        sudo snap install docker code drawio firefox chromium
+
+        sudo apt install unrar uget mpv  \
+            git git-flow guake audacious redshift \
+            apt-transport-https ca-certificates software-properties-common \
+            indicator-multiload adapta-gtk-theme papirus-icon-theme
 
         git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
         ~/.bash_it/install.sh
@@ -287,9 +291,11 @@ docker run -d --restart always --name chisel -p 9050:1080 jpillora/chisel client
     1. Run commands bellow:
 
         ```code
-        brew install unrar git
+        brew cask install docker visual-studio-code drawio firefox google-chrome
 
-        brew cask install visual-studio-code mpv firefox google-chrome iterm2
+        brew cask install mpv iterm2
+
+        brew install unrar git docker-compose
 
         git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
         ~/.bash_it/install.sh
